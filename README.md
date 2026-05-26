@@ -1,8 +1,7 @@
 # Driver Behavior Analyzer
 
 A end-to-end telematics pipeline that classifies driving trips as **Safe**, 
-**Moderate**, or **Risky** using simulated sensor data — inspired by CMT's 
-DriveWell® platform.
+**Moderate**, or **Risky** using simulated sensor data.
 
 ## What it does
 
@@ -14,7 +13,7 @@ DriveWell® platform.
   the same approach telematics platforms use to explain risk to drivers
   and insurers
 - Benchmarks **three classifiers** — Random Forest, LightGBM, and a 
-  Stacking Ensemble — and automatically selects the best by cross-validated F1
+  Stacking Ensemble and automatically selects the best by cross-validated F1
 - Produces a **6-panel analysis dashboard** and an **interactive map** of 
   trip risk by location
 
@@ -29,7 +28,7 @@ DriveWell® platform.
 | LightGBM | 0.9840 | 0.9758 | 0.0054 |
 | Stacking Ensemble | 0.9840 | 0.9785 | 0.0066 |
 
-**Winner: Random Forest** — highest cross-validated F1, meaning it was most 
+**Winner: Random Forest**: highest cross-validated F1, meaning it was most 
 consistent across folds, not just on a single test split. This distinction 
 matters in production where you want stable performance across unseen data,
 not just one lucky split.
@@ -44,20 +43,20 @@ not just one lucky split.
 | `events_per_km` | █████ | Hard events normalized by distance |
 | `phone_use_sec` | █████ | Total seconds of phone distraction |
 
-Speed-related features dominate — meaning speed behavior is the strongest 
+Speed-related features dominate: meaning speed behavior is the strongest 
 predictor of risk, more so than braking or phone use alone.
 
 ## Key findings
 
-- **Speeding is road-type agnostic** — Urban, Suburban, and Highway drivers 
+- **Speeding is road-type agnostic**: Urban, Suburban, and Highway drivers 
   speed at similar rates, which means road type alone isn't a reliable 
   risk signal
-- **Phone use and hard braking correlate** — risky drivers cluster in the 
+- **Phone use and hard braking correlate**: risky drivers cluster in the 
   top-right of the scatter plot (high phone use + high hard brakes), 
   confirming both behaviors tend to occur together
-- **Driver tier split: 48% Safe, 36% Moderate, 16% Risky** — roughly 
+- **Driver tier split: 48% Safe, 36% Moderate, 16% Risky**: roughly 
   matching the generation priors, validating the pipeline end-to-end
-- **98% classification accuracy** on synthetic data — on real messy 
+- **98% classification accuracy** on synthetic data: on real messy 
   telematics data, expect 70–85%, which is the realistic production range
 
 ## Project structure

@@ -58,17 +58,3 @@ predictor of risk, more so than braking or phone use alone.
   matching the generation priors, validating the pipeline end-to-end
 - **98% classification accuracy** on synthetic data: on real messy 
   telematics data, expect 70–85%, which is the realistic production range
-
-## Project structure
-driver-behavior-analyzer/
-├── generate_data.py   # Generates synthetic trip sensor dataset
-├── analyzer.py        # Feature engineering + model benchmarking + scoring
-├── visualize.py       # 6-panel dashboard + interactive folium map
-├── data/              # Created at runtime
-│   ├── trips.csv
-│   ├── trips_scored.csv
-│   └── driver_summary.csv
-├── output/            # Created at runtime
-│   ├── dashboard.png
-│   └── risk_map.html
-└── README.md
